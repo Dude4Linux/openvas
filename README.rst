@@ -1,33 +1,64 @@
-#MyApp# - Descriptive Title
-=======================================
+TKLtemplate - Template for starting a NEW TurnKey GNU/Linux appliance
+=====================================================================
 
-`#MyApp#`_ is an open source application licensed under the GPL.
+`TKLtemplate` is an open source application licensed under the GPL.
 
 Description or Purpose
 ----------------------
-.. Briefly describe what the appliance does 
+.. Briefly describe what the template does 
 
-This appliance includes all the standard features in `TurnKey Core`_,
-and on top of that:
+This template is meant to be used when starting a new TurnKey GNU/Linux appliance.
+Do not use when forking an existing appliance, instead follow the `Guidelines`_.
 
-Additional Features
--------------------
-.. Add or remove additional features from the list below
+Usage
+-----
+.. Describe the steps for using the template below
 
-- SSL support out of the box.
-- `PHPMyAdmin`_ administration frontend for MySQL (listening on port
-  12322 - uses SSL).
-- Postfix MTA (bound to localhost) to allow sending of email (e.g.,
-  password recovery).
-- Webmin modules for configuring Apache2, PHP, MySQL and Postfix.
+Create a new project repository on GitHub
+'''''''''''''''''''''''''''''''''''''''''
+* Log into `GitHub`_, and browse to your home directory.
+* Click on the ``Repositories`` tab; then click the ``New`` button.
+* Enter a repository name appropriate for the new appliance.
 
-Credentials *(passwords set at first boot)*
--------------------------------------------
+Note: GitHub will offer to create a README.rst file. Leave the option unchecked.
 
--  Webmin, SSH, MySQL, phpMyAdmin: username **root**
+Clone the repository
+''''''''''''''''''''
+To be able to work on the project you'll need to clone it::
 
-.. Edit above to remove references to MySQL, phpMyAdmin, etc if not used in your appliance.  Add a line for additional application credentials, if any, set at first boot.
+On your TKLdev workstation, enter
 
-.. _#MyApp#: http://www.#MyApp#.org
-.. _TurnKey Core: http://www.turnkeylinux.org/core
-.. _PHPMyAdmin: http://www.phpmyadmin.net
+        cd projects    
+        git clone git@github.com:USERNAME/PROJECTNAME.git    
+        cd PROJECTNAME   
+
+Tip: GitHub will provide a convenient link with the correct USERNAME and PROJECTNAME that you can copy and paste.
+
+Fetch and Merge the TKLtemplate
+'''''''''''''''''''''''''''''''
+To copy the TKLtemplate, we'll add it as an upstream source.
+
+        git remote add upstream https://github.com/Dude4Linux/TKLtemplate.git
+        git fetch upstream
+        git merge upstream/master
+
+Replace template README.rst
+'''''''''''''''''''''''''''
+
+        mv README.app README.rst
+
+Edit README.rst and changelog
+'''''''''''''''''''''''''''''
+
+Edit the files, replacing all references to #MyApp#, #Author#, #email# and #date# with the appropriate values.
+
+Commit and Push the changes
+''''''''''''''''''
+
+        git add .
+        git commit -m "initial commit"
+        git push -u origin master
+
+
+.. _GitHub: https://github.com
+.. _Guidelines: http://github.com/turnkeylinux/tracker/blob/master/GITFLOW.rst
