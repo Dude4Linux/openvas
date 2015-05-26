@@ -1,3 +1,9 @@
 #!/bin/sh -ex
 # main installation script
 
+# install OpenVAS v.8 from Kali Linux repository
+apt-get -qq update
+apt-get install  greenbone-security-assistant openvas openvas-cli openvas-manager
+
+# run OpenVAS setup
+openvas-setup
