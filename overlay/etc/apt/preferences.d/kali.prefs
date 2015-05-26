@@ -1,0 +1,47 @@
+Package: *
+Pin: release o=Kali
+Pin-Priority: 400
+
+Package: openvas
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: openvas-cli
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: openvas-manager
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: openvas-scanner
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: greenbone-security-assistant
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: libmicrohttpd10
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: redis-server
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: sqlite3
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: libsqlite3-0
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: xsltproc
+Pin: release o=Kali
+Pin-Priority: 500
+
+Package: rsync
+Pin: release o=Kali
+Pin-Priority: 500
