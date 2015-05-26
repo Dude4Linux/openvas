@@ -28,7 +28,7 @@ To be able to work on the project you'll need to clone it.
 
 On your TKLdev workstation, enter:
 
-<code> ::
+::
 
         cd projects    
         git clone git@github.com:USERNAME/PROJECTNAME.git    
@@ -40,16 +40,16 @@ Fetch and Merge the TKLtemplate
 '''''''''''''''''''''''''''''''
 To copy the TKLtemplate, we'll add it as an upstream source.
 
-<code> ::
+::
 
         git remote add upstream https://github.com/Dude4Linux/TKLtemplate.git
         git fetch upstream
         git merge upstream/master
 
-Replace template README.rst ::
+Replace template README.rst
 '''''''''''''''''''''''''''
 
-<code> ::
+::
 
         mv README.app README.rst
 
@@ -58,10 +58,10 @@ Edit README.rst and changelog
 
 Edit the files, replacing all references to #MyApp#, #Author#, #email# and #date# with the appropriate values.
 
-Commit and Push the changes ::
+Commit and Push the changes
 '''''''''''''''''''''''''''
 
-<code> ::
+::
 
         git add .
         git commit -m "initial commit"
