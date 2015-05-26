@@ -2,8 +2,10 @@
 # main installation script
 
 # install OpenVAS v.8 from Kali Linux repository
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
 apt-get -qq update
-apt-get install  greenbone-security-assistant openvas openvas-cli openvas-manager
+apt-get -qy install sqlite3 libsqlite3-0
+apt-get -qy install  greenbone-security-assistant openvas openvas-cli openvas-manager
 
 # run OpenVAS setup
 openvas-setup
