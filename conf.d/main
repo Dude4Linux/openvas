@@ -23,3 +23,9 @@ systemctl enable openvas-manager.service
 update-rc.d greenbone-security-assistant remove
 systemctl enable greenbone-security-assistant
 
+# update OpenVAS feeds via crontab
+cat << EOF  >> /etc/crontab
+# update openvas feeds
+25 1    * * *   root    /usr/local/bin/update-openvas >/dev/null 2>&1
+#
+EOF
