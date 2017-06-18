@@ -4,11 +4,22 @@
 # install OpenVAS from Kali Linux repository
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
 apt-get -qq update
-apt-get -qy install sqlite3 libsqlite3-0
-apt-get -qy install  greenbone-security-assistant openvas openvas-cli openvas-manager
+apt-get -qy -t kali-rolling install sqlite3 libsqlite3-0
+apt-get -qy -t kali-rolling install greenbone-security-assistant openvas openvas-cli openvas-manager
 
 # run OpenVAS setup
 openvas-setup
 
 # listen on 0.0.0.0
 sed -i 's/127.0.0.1/0.0.0.0/g' /lib/systemd/system/greenbone-security-assistant.service /lib/systemd/system/openvas-manager.service /lib/systemd/system/openvas-scanner.service
+
+# start OpenVAS on initial boot
+sed -i "/Default-Start/ s/:.*$/:     2 3 4 5/" greenbone-security-assistant openvas-manager openvas-scanner
+
+update-rc.d openvas-scanner remove
+systemctl enable openvas-scanner.service
+update-rc.d openvas-manager remove
+systemctl enable openvas-manager.service
+update-rc.d greenbone-security-assistant remove
+systemctl enable greenbone-security-assistant
+
