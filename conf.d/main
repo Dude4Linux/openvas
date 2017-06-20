@@ -14,7 +14,7 @@ openvas-setup
 sed -i 's/127.0.0.1/0.0.0.0/g' /lib/systemd/system/greenbone-security-assistant.service /lib/systemd/system/openvas-manager.service /lib/systemd/system/openvas-scanner.service
 
 # start OpenVAS on initial boot
-sed -i "/Default-Start/ s/:.*$/:     2 3 4 5/" greenbone-security-assistant openvas-manager openvas-scanner
+sed -i "/Default-Start/ s/:.*$/:     2 3 4 5/" /etc/init.d/greenbone-security-assistant /etc/init.d/openvas-manager /etc/init.d/openvas-scanner
 
 update-rc.d openvas-scanner remove
 systemctl enable openvas-scanner.service
