@@ -7,11 +7,12 @@ turnkey-openvas-14.2 (1) turnkey; urgency=low
    - The world's most advanced Open Source vulnerability scanner and manager
    - OpenVAS is a fork of the Nessus scanner before it's license was changed
    - to proprietary in 2005.
-   - OpenVAS is developed and maintained by Greenbone Networks
+   - OpenVAS was developed and is maintained by Greenbone Networks
+   - This appliance is not supported by Greenbone Networks.
 
    - We are using the OpenVAS packages from Kali Linux repository
-   - because they are compiled for Debian. This limits us to
-   - OpenVAS version 8.
+   - because they are compiled for Debian.
+   - OpenVAS 9
 
  * Please refer to turnkey-core's changelog for changes common to all
    appliances, as well as the following git logs:
@@ -19,5 +20,5 @@ turnkey-openvas-14.2 (1) turnkey; urgency=low
    - https://github.com/turnkeylinux/common
    - https://github.com/turnkeylinux-apps/core
 
- -- John Carver <dude4linux@gmail.com>  Tue, 13 Jun 2017 16:32:05 +0000
+ -- John Carver <dude4linux@gmail.com>  Thu, 29 Jun 2017 16:32:05 +0000
 
