@@ -10,6 +10,18 @@ apt-get -qy -t kali-rolling install greenbone-security-assistant openvas openvas
 # run OpenVAS setup
 openvas-setup
 
+# set admin initial password for build
+/usr/sbin/openvasmd --user="admin" --new-password="turnkey"
+
+# create TurnKey Default port_list
+cat /tmp/create_turnkey_default_port_list.xml | omp -u admin -w turnkey -iX "-"
+
+# create TurnKey scan_config
+cat /tmp/create_turnkey_scan_config.xml | omp -u admin -w turnkey -iX "-"
+
+# cleanup
+rm -f /tmp/create_turnkey_*
+
 # listen on 0.0.0.0
 sed -i 's/127.0.0.1/0.0.0.0/g' /lib/systemd/system/greenbone-security-assistant.service /lib/systemd/system/openvas-manager.service /lib/systemd/system/openvas-scanner.service
 
@@ -29,3 +41,9 @@ cat << EOF  >> /etc/crontab
 25 1    * * *   root    /usr/local/bin/update-openvas >/dev/null 2>&1
 #
 EOF
+
+# stop OpenVAS
+service greenbone-security-assistant stop
+service openvas-manager stop
+service openvas-scanner stop
+
